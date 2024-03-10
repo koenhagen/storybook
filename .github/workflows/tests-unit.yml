@@ -24,4 +24,9 @@ jobs:
       - name: install and compile
         run: yarn task --task compile --start-from=auto --no-link
       - name: test
-        run: yarn test
+        uses: koenhagen/measure-energy-action@v0.33
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          run: yarn test
+          count: 1
+      
